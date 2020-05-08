@@ -1,4 +1,4 @@
 module.exports = {
   outputDir: 'out',
-  publicPath: '/a/'
+  publicPath: '/webpc/'
 }

@@ -34,12 +34,19 @@ export default {
       b = b.data;
       if (b.msg == "登录成功") {
         //
+        this.$store.commit("setDoc", this.user);
+        this.$store.dispatch("linksocket")
         this.$router.replace("/home");
       } else {
         //
+        this.$message({
+          showClose: true,
+          message: b.msg,
+          type: "warning",
+          duration: 1500,
+          offset: window.screen.height / 4
+        });
       }
-      console.log(b);
-      console.log(b.msg)
       // this.$router.replace('/about')
     }
   }

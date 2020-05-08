@@ -15,6 +15,20 @@ const routes = [
     component: Home
   },  
   {
+    path:'/view',
+    component:()=>import('../components/SWindow.vue'),
+    children:[
+      {
+        path:'a',
+        component:Home
+      },
+      {
+        path:'home',
+        component:()=>import('../views/Shome.vue')
+      }
+    ]
+  },
+  {
     path: '/about/:id?',
     name: 'About',
     // route level code-splitting

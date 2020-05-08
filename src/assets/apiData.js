@@ -2,6 +2,8 @@ import axios from './httpApi'
 const base = {
     //baseUrl: 'http://localhost:88',
     baseUrl:'http://122.112.225.219:88',
+    wsBaseUrl:'ws://122.112.225.219:88/websocket',
+    //wsBaseUrl:process.env.NODE_ENV === 'production' ? 'ws://122.112.225.219:88/websocket' : 'ws://localhost:88/websocket',
 //    baseUrl:process.env.NODE_ENV === 'production' ? 'http://122.112.225.219:88' : 'http://localhost:88',
     banner: '/t/t2'
 }
@@ -48,6 +50,11 @@ const banner = {
             return axios.options(url)
         else
             return axios.options(base.baseUrl + url)
+    },
+    linkToWebSocket(url,hasBase){
+        if(hasBase)
+        return new WebSocket(url);
+        else return new WebSocket(base.wsBaseUrl+url);
     }
 }
 

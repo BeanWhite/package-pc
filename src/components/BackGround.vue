@@ -9,7 +9,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .satic-area {
 	position: fixed;
 	top: 0;
