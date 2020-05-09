@@ -422,8 +422,9 @@ input {
     display: flex;
     .list-content {
       margin-top: 10px;
+      padding-right: 20px;
       // height: 100%;
-      width: 100%;
+      width: calc(100% - 20px);
       overflow-y: overlay;
       overflow-x: hidden;
     }
@@ -453,6 +454,7 @@ input {
         justify-content: center;
         align-items: center;
         .list-m {
+         
           height: calc(100% - 30px);
           width: calc(100% - 30px);
           display: flex;
