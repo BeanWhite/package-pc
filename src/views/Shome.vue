@@ -257,7 +257,9 @@ export default {
     this.left.listItems.splice(0);
     let that = this;
     async function init() {
-      var data = await axios.banner.get("/scales/all");
+      var data = await axios.banner.get({
+        url:"/scales/all"
+      });
       data = data.data.object;
       data.sort(that.sortList);
       if (data) that.left.listItems = data;
@@ -313,7 +315,9 @@ export default {
       if(this.right.search==''||this.right.search==undefined){
         return
       }
-      let data = await axios.banner.get('/users/msgForDoc/' + this.right.search);
+      let data = await axios.banner.get({
+        url:'/users/msgForDoc/' + this.right.search
+      });
       data = data.data;
 
       if(data.object){
@@ -367,7 +371,9 @@ export default {
             message: '发布成功!'
           });
           //从服务器上清空之前发布的内容缓存
-          axios.banner.delete('/report/redis0/'+11);
+          axios.banner.delete({
+            url:'/report/redis0/'+11
+          });
          
          //判断信息是否发生了修改，如果修改需更新到服务器
 

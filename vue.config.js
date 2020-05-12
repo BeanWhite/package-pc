@@ -1,4 +1,7 @@
 module.exports = {
   outputDir: 'out',
-  publicPath: '/webpc/'
+  publicPath: '/webpc/',
+  // devServer:{
+  //   https:true
+  // }
 }

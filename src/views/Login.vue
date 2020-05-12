@@ -30,7 +30,11 @@ export default {
   methods: {
     //使用async+await将请求同步化，原因：axios请求方式为Promis异步请求
     submitForm: async function() {
-      var b = await apiData.banner.post(this.user, "/login/doc");
+      let that = this;
+      var b = await apiData.banner.post({
+        data:that.user,
+        url:"/login/doc"
+      });
       b = b.data;
       if (b.msg == "登录成功") {
         //

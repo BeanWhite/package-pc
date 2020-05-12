@@ -8,53 +8,59 @@ const base = {
     banner: '/t/t2'
 }
 
+/**
+ * url 请求地址
+ * data 发送的数据
+ * hasBase 请求地址头是否为默认
+ */
 const banner = {
-    get(url, hasBase) {
-        if (hasBase)
-            return axios.get(url)
+    get(object) {
+        
+        if (object.hasBase)
+            return axios.get(object.url)
         else
-            return axios.get(base.baseUrl + url)
+            return axios.get(base.baseUrl + object.url)
     },
-    post(data, url, hasBase) {
-        if (hasBase)
-            return axios.post(url, data)
+    post(object) {
+        if (object.hasBase)
+            return axios.post(object.url, object.data)
         else
-            return axios.post(base.baseUrl + url, data)
+            return axios.post(base.baseUrl + object.url, object.data)
     },
-    put(data, url, hasBase) {
-        if (hasBase)
-            return axios.put(url, data)
+    put(object) {
+        if (object.hasBase)
+            return axios.put(object.url, object.data)
         else
-            return axios.put(base.baseUrl + url, data)
+            return axios.put(base.baseUrl + object.url, object.data)
     },
-    delete(url, hasBase) {
-        if (hasBase)
-            return axios.delete(url)
+    delete(object) {
+        if (object.hasBase)
+            return axios.delete(object.url)
         else
-            return axios.delete(base.baseUrl + url)
+            return axios.delete(base.baseUrl + object.url)
     },
-    patch(data, url, hasBase) {
-        if (hasBase)
-            return axios.patch(url, data)
+    patch(object) {
+        if (object.hasBase)
+            return axios.patch(object.url, object.data)
         else
-            return axios.patch(base.baseUrl + url, data)
+            return axios.patch(base.baseUrl + object.url, object.data)
     },
-    head(url, hasBase) {
-        if (hasBase)
-            return axios.head(url)
+    head(object) {
+        if (object.hasBase)
+            return axios.head(object.url)
         else
-            return axios.head(base.baseUrl + url)
+            return axios.head(base.baseUrl + object.url)
     },
-    options(url, hasBase) {
-        if (hasBase)
-            return axios.options(url)
+    options(object) {
+        if (object.hasBase)
+            return axios.options(object.url)
         else
-            return axios.options(base.baseUrl + url)
+            return axios.options(base.baseUrl + object.url)
     },
-    linkToWebSocket(url,hasBase){
-        if(hasBase)
-        return new WebSocket(url);
-        else return new WebSocket(base.wsBaseUrl+url);
+    linkToWebSocket(object){
+        if(object.hasBase)
+        return new WebSocket(object.url);
+        else return new WebSocket(base.wsBaseUrl+object.url);
     }
 }
 
